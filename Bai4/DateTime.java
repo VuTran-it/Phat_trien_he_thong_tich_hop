@@ -3,7 +3,7 @@ import java.io.*;
 import java.net.*;
 
 public class DateTime extends Thread {
-    private Socket socket;
+    Socket socket;
 
     public DateTime(Socket socket) {
         this.socket = socket;
@@ -40,7 +40,7 @@ public class DateTime extends Thread {
                 }
                 // Gui tra ket qua sang Client
                 os.write(kqua.getBytes());
-                Thread.sleep(2000);
+                Thread.sleep(500);
             }
         } catch (IOException e) {
             System.out.println(e);

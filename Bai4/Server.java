@@ -3,21 +3,16 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-    private int port;
-    
-    public Server(int port) {
-        this.port = port;
-    }
-
-    private void execute() throws IOException {
-        ServerSocket server = new ServerSocket(port);
-        Socket socket = server.accept();
-        DateTime read = new DateTime(socket);
-        read.start();
-    }
     public static void main(String[] args) throws IOException {
-        Server server = new Server(6789);
+        ServerSocket server = new ServerSocket(6789);
         System.out.println("DA KHOI DONG SERVER");
-        server.execute();
+        System.out.println("server connected with port = 6789");
+        while(true)
+        {
+            Socket socket = server.accept();
+            System.out.println("Chao Client " +socket.getPort());
+            DateTime t = new DateTime(socket);
+            t.start();
+        }
     }
 }
